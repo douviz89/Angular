@@ -1,0 +1,12 @@
+<h2>Liste de randonnées :</h2>
+<div>
+    Filtrer par : <input type="text" [(ngModel)]="searchTerm" placeholder="mot clés...">
+</div>
+<div *ngFor="let hike of hikes | hikeFilter: searchTerm">
+    <ul>
+        <li>
+           <a [routerLink]="['/hikes', hike.id]">{{hike.name | uppercase}}</a> 
+        </li>
+        {{hike.description}}
+    </ul>
+</div>
